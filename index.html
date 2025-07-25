@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویدیوگرام - بازارگاه فایل‌های گرافیکی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6b21a8 0%, #1e40af 100%);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: #4f46e5;
+        }
+        
+        .category-btn.active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        .mobile-menu.closed {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-purple-800 text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold">ویدیوگرام</h1>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <a href="#" class="hover:text-purple-200 transition">خانه</a>
+                    <a href="#products" class="hover:text-purple-200 transition">محصولات</a>
+                    <a href="#about" class="hover:text-purple-200 transition">درباره ما</a>
+                    <a href="#contact" class="hover:text-purple-200 transition">تماس با ما</a>
+                </div>
+                
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="جستجو..." class="bg-white bg-opacity-20 rounded-full py-2 px-4 text-white placeholder-white focus:outline-none w-64">
+                        <i class="fas fa-search absolute left-3 top-3 text-white"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu closed mt-4 md:hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-3 py-3">
+                    <a href="#" class="hover:text-purple-200 transition border-b border-white border-opacity-20 pb-2">خانه</a>
+                    <a href="#products" class="hover:text-purple-200 transition border-b border-white border-opacity-20 pb-2">محصولات</a>
+                    <a href="#about" class="hover:text-purple-200 transition border-b border-white border-opacity-20 pb-2">درباره ما</a>
+                    <a href="#contact" class="hover:text-purple-200 transition">تماس با ما</a>
+                    <div class="relative pt-2">
+                        <input type="text" placeholder="جستجو..." class="bg-white bg-opacity-20 rounded-full py-2 px-4 text-white placeholder-white focus:outline-none w-full">
+                        <i class="fas fa-search absolute left-3 top-5 text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">بهترین فایل‌های گرافیکی را از ما دریافت کنید</h2>
+                    <p class="text-xl mb-8 opacity-90">کلیه فایل‌های گرافیکی با کیفیت بالا و کاملاً رایگان برای استفاده شما</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#products" class="bg-white text-purple-800 px-6 py-3 rounded-full font-bold hover:bg-purple-100 transition">مشاهده محصولات</a>
+                        <a href="#about" class="border border-white px-6 py-3 rounded-full font-bold hover:bg-white hover:bg-opacity-10 transition">درباره ما</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Graphic Files" class="rounded-xl shadow-2xl w-full max-w-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10">دسته‌بندی محصولات</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="category-btn active bg-white px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">همه</button>
+                <button class="category-btn bg-white px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">کادر اینستاگرام</button>
+                <button class="category-btn bg-white px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">تایپوگرافی</button>
+                <button class="category-btn bg-white px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">براش</button>
+                <button class="category-btn bg-white px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition">تامنیل</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="py-16" id="products">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">محصولات ما</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="کادر اینستاگرام" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">کادر اینستاگرام حرفه‌ای</h3>
+                        <p class="text-gray-600 text-sm mb-4">کادرهای زیبا و حرفه‌ای برای پست‌های اینستاگرام شما</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۵)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/br3bbmwwux2kp59/کادر+اینستا.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1618004912476-29818d81ae2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="تایپوگرافی" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">تایپوگرافی مدرن</h3>
+                        <p class="text-gray-600 text-sm mb-4">مجموعه‌ای از فونت‌ها و تایپوگرافی‌های زیبا و مدرن</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۰)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/g217g0azhvp6myx/تایپو+گرافی.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="براش" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">براش فتوشاپ حرفه‌ای</h3>
+                        <p class="text-gray-600 text-sm mb-4">مجموعه‌ای از براش‌های حرفه‌ای برای فتوشاپ</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۵.۰)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/ycs7x17xfrkmbkx/براش.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="تامنیل" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">تامنیل یوتیوب جذاب</h3>
+                        <p class="text-gray-600 text-sm mb-4">طرح‌های آماده تامنیل برای ویدیوهای یوتیوب</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۵)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/clmw4xvmlptmoav/تامنیل.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="کادر اینستاگرام" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">کادر اینستاگرام مینیمال</h3>
+                        <p class="text-gray-600 text-sm mb-4">کادرهای ساده و مینیمال برای پست‌های اینستاگرام</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۰)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/br3bbmwwux2kp59/کادر+اینستا.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551033406-611a8b0b04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="تایپوگرافی" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">تایپوگرافی خلاقانه</h3>
+                        <p class="text-gray-600 text-sm mb-4">طرح‌های تایپوگرافی خلاقانه برای پروژه‌های شما</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۵.۰)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/g217g0azhvp6myx/تایپو+گرافی.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="براش" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">براش نقاشی دیجیتال</h3>
+                        <p class="text-gray-600 text-sm mb-4">براش‌های مخصوص نقاشی دیجیتال و تصویرسازی</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۵)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/ycs7x17xfrkmbkx/براش.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تامنیل" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">رایگان</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">تامنیل آموزشی</h3>
+                        <p class="text-gray-600 text-sm mb-4">طرح‌های تامنیل مخصوص ویدیوهای آموزشی</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-600 text-sm mr-1">(۴.۰)</span>
+                            </div>
+                            <a href="https://www.mediafire.com/file/clmw4xvmlptmoav/تامنیل.zip/file" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:shadow-md">دانلود رایگان</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-white border border-purple-600 text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-purple-50 transition">نمایش محصولات بیشتر</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="py-16 bg-gray-50" id="about">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6">درباره ویدیوگرام</h2>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        ویدیوگرام یک پلتفرم تخصصی برای ارائه فایل‌های گرافیکی با کیفیت بالا است که در سال ۱۴۰۲ با هدف کمک به جامعه گرافیک ایران تأسیس شد. ما باور داریم که دسترسی به منابع گرافیکی با کیفیت باید برای همه آسان و رایگان باشد.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        تیم ما متشکل از طراحان گرافیک حرفه‌ای است که با دقت و حساسیت بالا، بهترین فایل‌ها را برای شما آماده می‌کنند. تمامی محصولات ما قبل از انتشار توسط تیم کنترل کیفیت بررسی می‌شوند تا از استانداردهای لازم برخوردار باشند.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        ما در ویدیوگرام به دنبال ایجاد یک جامعه قوی از طراحان و علاقه‌مندان به گرافیک هستیم و همواره در تلاشیم تا با ارائه محصولات بهتر، تجربه کاربری شما را ارتقا دهیم.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Us" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">۵۰۰+</div>
+                    <div class="text-lg">محصول رایگان</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">۱۰,۰۰۰+</div>
+                    <div class="text-lg">دانلود روزانه</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">۹۵%</div>
+                    <div class="text-lg">رضایت کاربران</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">۲۴/۷</div>
+                    <div class="text-lg">پشتیبانی</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">نظرات کاربران</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">س</div>
+                        <div class="mr-3">
+                            <div class="font-bold">سارا محمدی</div>
+                            <div class="text-gray-500 text-sm">طراح گرافیک</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        کیفیت فایل‌های ویدیوگرام واقعاً عالیه! من همیشه برای پروژه‌هام از محصولات این سایت استفاده می‌کنم. دانلود رایگان هم که دیگه چه بهتر!
+                    </p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">ع</div>
+                        <div class="mr-3">
+                            <div class="font-bold">علی رضایی</div>
+                            <div class="text-gray-500 text-sm">مدیر شبکه‌های اجتماعی</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        کادرهای اینستاگرام این سایت واقعاً حرفه‌ای و کاربردی هستن. از وقتی این سایت رو پیدا کردم دیگه نیازی به طراحی کادر ندارم. ممنون از تیم ویدیوگرام.
+                    </p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">م</div>
+                        <div class="mr-3">
+                            <div class="font-bold">محمد حسینی</div>
+                            <div class="text-gray-500 text-sm">یوتیوبر</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        تامنیل‌های این سایت واقعاً به رشد کانال یوتیوب من کمک کردن. کیفیت فایل‌ها عالیه و تنوعشون هم خوبه. پیشنهاد می‌کنم حتما امتحان کنید.
+                    </p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-16 bg-gray-50" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6">تماس با ما</h2>
+                    <p class="text-gray-700 mb-6">
+                        برای ارتباط با ما می‌توانید از طریق اطلاعات زیر اقدام کنید یا فرم تماس را پر نمایید. تیم پشتیبانی ویدیوگرام در سریع‌ترین زمان ممکن پاسخگوی شما خواهد بود.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full text-purple-600 mr-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">آدرس</h4>
+                                <p class="text-gray-700">آذربایجان شرقی، شهرستان هریس، شهر زرنق</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full text-purple-600 mr-3">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">تلفن</h4>
+                                <p class="text-gray-700">۰۹۳۹۹۹۸۷۸۲۰</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full text-purple-600 mr-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">ایمیل</h4>
+                                <p class="text-gray-700">mohammadhsz13899@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">ما را در شبکه‌های اجتماعی دنبال کنید</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="bg-purple-600 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-6">فرم تماس</h3>
+                        
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">نام و نام خانوادگی</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">ایمیل</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">شماره تماس</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">پیام شما</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition">ارسال پیام</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">سوالات متداول</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center focus:outline-none">
+                        <h3 class="text-lg font-bold text-right">آیا دانلود فایل‌ها واقعاً رایگان است؟</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 text-gray-700 hidden">
+                        بله، تمامی فایل‌های موجود در ویدیوگرام کاملاً رایگان هستند و شما می‌توانید بدون هیچ هزینه‌ای آنها را دانلود و استفاده نمایید. ما اعتقاد داریم که منابع باکیفیت گرافیکی باید در دسترس همه باشد.
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center focus:outline-none">
+                        <h3 class="text-lg font-bold text-right">چگونه می‌توانم از فایل‌ها استفاده کنم؟</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 text-gray-700 hidden">
+                        پس از دانلود فایل مورد نظر، می‌توانید آن را در نرم‌افزارهای مرتبط مانند فتوشاپ، ایلاستریتور، پریمیر پرو و... باز کرده و ویرایش نمایید. اکثر فایل‌ها به صورت لایه باز هستند و به راحتی قابل شخصی‌سازی می‌باشند.
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center focus:outline-none">
+                        <h3 class="text-lg font-bold text-right">آیا محدودیتی در تعداد دانلود وجود دارد؟</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 text-gray-700 hidden">
+                        خیر، شما می‌توانید بدون هیچ محدودیتی هر تعداد فایل که نیاز دارید دانلود نمایید. همچنین می‌توانید یک فایل را چندین بار دانلود کنید.
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center focus:outline-none">
+                        <h3 class="text-lg font-bold text-right">آیا می‌توانم فایل‌ها را برای دیگران ارسال کنم؟</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 text-gray-700 hidden">
+                        بله، شما می‌توانید فایل‌ها را برای دوستان و همکاران خود ارسال کنید، اما لطفاً آنها را به ویدیوگرام ارجاع دهید تا از خدمات ما مطلع شوند و بتوانند از سایر محصولات ما نیز استفاده نمایند.
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="faq-toggle w-full flex justify-between items-center focus:outline-none">
+                        <h3 class="text-lg font-bold text-right">چگونه می‌توانم محصولات خود را در ویدیوگرام منتشر کنم؟</h3>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 text-gray-700 hidden">
+                        اگر شما هم طراح گرافیک هستید و مایلید محصولات خود را در ویدیوگرام منتشر کنید، می‌توانید از طریق فرم تماس با ما در ارتباط باشید. پس از بررسی کیفیت کارها، فایل‌های شما در سایت منتشر خواهد شد.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">در خبرنامه ویدیوگرام عضو شوید</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">با عضویت در خبرنامه، از جدیدترین محصولات و تخفیف‌های ویژه ما با خبر شوید.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="آدرس ایمیل شما" class="flex-grow px-4 py-3 rounded-r-full focus:outline-none text-gray-900">
+                <button class="bg-purple-800 px-6 py-3 rounded-l-full font-bold hover:bg-purple-900 transition">عضویت</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-play text-purple-800"></i>
+                        </div>
+                        ویدیوگرام
+                    </h3>
+                    <p class="text-gray-400">
+                        ویدیوگرام مرجع تخصصی فایل‌های گرافیکی با کیفیت بالا و کاملاً رایگان برای طراحان و علاقه‌مندان به گرافیک.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">لینک‌های سریع</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">خانه</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition">محصولات</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">درباره ما</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">دسته‌بندی‌ها</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">کادر اینستاگرام</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">تایپوگرافی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">براش</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">تامنیل</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">تماس با ما</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-purple-500"></i>
+                            <span>آذربایجان شرقی، شهرستان هریس، شهر زرنق</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-purple-500"></i>
+                            <span>۰۹۳۹۹۹۸۷۸۲۰</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-purple-500"></i>
+                            <span>mohammadhsz13899@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© ۱۴۰۲ کلیه حقوق برای ویدیوگرام محفوظ است.</p>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-telegram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('closed')) {
+                mobileMenu.classList.remove('closed');
+                mobileMenu.classList.add('open');
+            } else {
+                mobileMenu.classList.remove('open');
+                mobileMenu.classList.add('closed');
+            }
+        });
+        
+        // Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active', 'text-white'));
+                button.classList.add('active', 'text-white');
+                
+                // Here you would normally filter products based on category
+                // For this demo, we're just changing the button style
+            });
+        });
+        
+        // FAQ Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
